@@ -31,12 +31,17 @@ module.exports = {
           },
           {
             loader: 'css-loader',
-            options: {
-              url:false,
-            }
           },
           "sass-loader",
         ]
+      },
+      {
+        test: /\.(png|jpe?g|gif|svg)$/i,
+        loader: 'file-loader',
+        options: {
+          outputPath: 'images',
+          publicPath : '/images',
+        },
       },
     ]
   },
