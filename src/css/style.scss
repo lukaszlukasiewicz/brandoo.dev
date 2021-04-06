@@ -7,10 +7,13 @@ html {
     margin:0;
     padding:0;
     min-height:100vh;
-    background: radial-gradient(circle at 80vw 30vh, rgba(156,44,219,1) 0%, rgba(16,9,41,1) 100vw);
+    background: radial-gradient(circle at 70vw 40vh,  rgba(188,40,217,1) 2%, rgba(42,48,149,1) 48%, rgba(16,9,41,1) 90%);
     background-color: #100929;
     background-repeat: no-repeat;
     background-position: 0 0;
     background-size: 100vw 100%;
+    font-family: museo-sans, sans-serif;
+    font-weight:300;
+    color:#fff;
   }
 }
