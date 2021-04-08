@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="92.835" height="67.063" viewBox="0 0 92.835 67.063">
+  <defs>
+    <filter id="Path_1495" x="0" y="0" width="92.835" height="67.063" filterUnits="userSpaceOnUse">
+      <feOffset input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feFlood flood-color="#f21289"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="Group_166" data-name="Group 166" transform="translate(3019.64 3693.072)">
+    <g transform="matrix(1, 0, 0, 1, -3019.64, -3693.07)" filter="url(#Path_1495)">
+      <path id="Path_1495-2" data-name="Path 1495" d="M-2936.6-3627.911l-11.045-17.181a1.228,1.228,0,0,0-1.032-.564h-12.272v-7.363a1.227,1.227,0,0,0-1.227-1.227h-46.635a1.228,1.228,0,0,0-1.227,1.227v39.272a1.227,1.227,0,0,0,1.227,1.227h8.7a7.373,7.373,0,0,0,7.259,6.136,7.372,7.372,0,0,0,7.259-6.136h27.208a7.373,7.373,0,0,0,7.259,6.136,7.372,7.372,0,0,0,7.259-6.136h6.24a1.226,1.226,0,0,0,1.227-1.227v-13.5A1.226,1.226,0,0,0-2936.6-3627.911Zm-9.623-10.43,5.553,8.639h-15.372v-8.591h9.818Zm-46.635,29.5a4.914,4.914,0,0,1-4.909-4.909,4.914,4.914,0,0,1,4.909-4.909,4.914,4.914,0,0,1,4.909,4.909A4.914,4.914,0,0,1-2992.859-3608.839Zm0-12.272a7.373,7.373,0,0,0-7.259,6.136h-7.468v-2.455h6.136v-2.454h-6.136v-31.909h44.181v2.455h-41.726v2.454h41.726v27h-20.863v2.454h20.863v2.455H-2985.6A7.373,7.373,0,0,0-2992.859-3621.111Zm41.726,12.272a4.914,4.914,0,0,1-4.909-4.909,4.914,4.914,0,0,1,4.909-4.909,4.914,4.914,0,0,1,4.909,4.909A4.914,4.914,0,0,1-2951.132-3608.839Zm7.259-6.136a7.372,7.372,0,0,0-7.259-6.136,7.373,7.373,0,0,0-7.259,6.136h-2.559V-3643.2h11.6l1.578,2.455h-9.5a1.227,1.227,0,0,0-1.227,1.227v11.045a1.226,1.226,0,0,0,1.227,1.227h18.177l.232.361v7h-3.682v2.454h3.682v2.455Z" transform="translate(3019.64 3663.85)" fill="#fff" stroke="#f21289" stroke-width="1.2"/>
+    </g>
+    <rect id="Rectangle_64" data-name="Rectangle 64" width="2.455" height="2.455" transform="translate(-2994.086 -3644.2)" fill="#fff" stroke="#f21289" stroke-width="1.2"/>
+    <rect id="Rectangle_65" data-name="Rectangle 65" width="2.455" height="2.455" transform="translate(-2952.359 -3644.2)" fill="#fff" stroke="#f21289" stroke-width="1.2"/>
+    <rect id="Rectangle_66" data-name="Rectangle 66" width="17.182" height="2.455" transform="translate(-3005.131 -3688.381)" fill="#fff" stroke="#f21289" stroke-width="1.2"/>
+    <rect id="Rectangle_67" data-name="Rectangle 67" width="2.455" height="2.455" transform="translate(-3010.04 -3688.381)" fill="#fff" stroke="#f21289" stroke-width="1.2"/>
+  </g>
+</svg>
