@@ -1,14 +1,13 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-  <%= require('html-loader!../partials/head.ejs').default %>
+  <include src="../partials/head.html"></include>
   <title>Brandoo.dev</title>
 </head>
 <body>
-  <%= require('html-loader!../partials/menu.ejs').default %>
-  <h1>Brandoo.dev</h1>
-  <section id="oferta">
 
+  <include src="../partials/menu.html"></include>
+  <section id="oferta">
     <div class="row">
       <h2>Oferta</h2>
       <div class="offer-item">
@@ -34,22 +33,24 @@
     </div>
   </section>
   <section id="o-brandoo">
-    <h2>O brandoo.dev</h2>
-    <p>Jesteśmy interdyscyplinarnym zespołem, który od ponad 10 lat świadczy usługi w branży IT. Indywidualne podejście, nieszablonowe myślenie i specjalistyczna wiedza sprawiają, że tworzymy oprogramowanie biznesowe:</p>
-    <ul>
-      <li>wysokiej jakości,</li>
-      <li>o niskich kosztach wdrożeniowych,</li>
-      <li>tanie w utrzymaniu.</li>
-    </ul>
-    <p>
-      Do realizowanych projektów podchodzimy z zachowaniem najwyższych standardów – dokładnie przetestowane, bezbłędnie działające aplikacje zawsze wdrażamy na czas!
-    </p>
-    <p>W skład Grupy Brandoo wchodzą:</p>
-    <ul>
-      <li><strong>brandoo.dev</strong> – usługi programistyczne dla dużych firm,</li>
-      <li><strong>brandoo.tech</strong> – wsparcie IT przy mniejszych projektach,</li>
-      <li><strong>brandoo.agency</strong>– interaktywna agencja marketingowa</li>
-    </ul>
+    <div class="row">
+      <h2>O brandoo.dev</h2>
+      <p>Jesteśmy interdyscyplinarnym zespołem, który od ponad 10 lat świadczy usługi w branży IT. Indywidualne podejście, nieszablonowe myślenie i specjalistyczna wiedza sprawiają, że tworzymy oprogramowanie biznesowe:</p>
+      <ul>
+        <li>wysokiej jakości,</li>
+        <li>o niskich kosztach wdrożeniowych,</li>
+        <li>tanie w utrzymaniu.</li>
+      </ul>
+      <p>
+        Do realizowanych projektów podchodzimy z zachowaniem najwyższych standardów – dokładnie przetestowane, bezbłędnie działające aplikacje zawsze wdrażamy na czas!
+      </p>
+      <p>W skład Grupy Brandoo wchodzą:</p>
+      <ul>
+        <li><strong>brandoo.dev</strong> – usługi programistyczne dla dużych firm,</li>
+        <li><strong>brandoo.tech</strong> – wsparcie IT przy mniejszych projektach,</li>
+        <li><strong>brandoo.agency</strong>– interaktywna agencja marketingowa</li>
+      </ul>
+    </div>
   </section>
   <section id="zadowoleni-klienci">
     <div class="row">
@@ -61,39 +62,34 @@
       <h2>Obsługujemy firmy z różnych obszarów</h2>
       <ul>
         <li>
-          <img src="" alt="">
           <span>Instytucje publiczne</span>
         </li>
         <li>
-          <img src="" alt="">
           <span>IT</span>
         </li>
         <li>
-          <img src="" alt="">
           <span>Medycyna</span>
         </li>
         <li>
-          <img src="" alt="">
           <span>Przemysł</span>
         </li>
         <li>
-          <img src="" alt="">
           <span>Transport</span>
         </li>
         <li>
-          <img src="" alt="">
           <span>Zdrowie i uroda</span>
         </li>
         <li>
-          <img src="" alt="">
           <span>Żywnośc</span>
         </li>
       </ul>
     </div>
   </section>
   <section id="brief">
-    <p>Twojej branży nie ma na liście? Skontaktuj się z nami – nietypowe rozwiązania w niszach rynkowych to nasza specjalność!</p>
+    <div class="row">
+      <p>Twojej branży nie ma na liście? Skontaktuj się z nami – nietypowe rozwiązania w niszach rynkowych to nasza specjalność!</p>
+    </div>
   </section>
-  <%= require('html-loader!../partials/footer.ejs').default %>
+  <include src="../partials/footer.html"></include>
 </body>
 </html>

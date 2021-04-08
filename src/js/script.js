@@ -1,2 +1,2 @@
 import '../css/style.scss'
-console.log("tes433");
+console.log("dupa");
