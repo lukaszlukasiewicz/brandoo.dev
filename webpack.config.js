@@ -2,7 +2,6 @@ const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const fs = require('fs');
-const loader = require('sass-loader');
 
 module.exports = {
   entry: "./src/js/script.js",
@@ -19,6 +18,7 @@ module.exports = {
           outputPath: 'images',
           publicPath : '/images',
           esModule : false,
+          name: '[name].[ext]'
         },
       },
       {
