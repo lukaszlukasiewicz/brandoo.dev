@@ -79,6 +79,9 @@ a:hover, a:visited {
   .col-2, .col-4 {
     grid-template-columns:1fr 1fr;
   }
+  .col-3 {
+    grid-template-columns:1fr 1fr 1fr;
+  }
 }
 
 @media (min-width:$xxl) {
@@ -95,7 +98,7 @@ a:hover, a:visited {
   gap:calc(2em + 2svw);
   box-sizing: border-box;
   position:relative;
-  margin:2em 1em;
+  margin:2em auto;
   h2 {
     margin:0;
     position:absolute;
@@ -144,11 +147,16 @@ a.btn-glow {
   border:solid .2em var(--glow-color,$blue);
   text-shadow:0 0 5px var(--glow-color,$blue);
   box-shadow: 0 0 10px var(--glow-color,$blue) , 0 0 10px var(--glow-color,$blue) inset;
+  transition:all .5s;
   &:hover {
-    animation: flicker 1s infinite
+    --glow-color:#{$pink};
+    animation: flicker 1s infinite;
   }
   &.btn-glow__green {
     --glow-color:#{$green};
+    &:hover {
+      --glow-color:#{$blue};
+    }
   }
   &.btn-glow__pink {
     --glow-color:#{$pink};
@@ -248,6 +256,73 @@ a.btn-glow {
     }
     .btn-glow {
       margin-top:1em;
+    }
+  }
+}
+
+
+footer {
+  position:relative;
+  padding-bottom:5em;
+  margin-top:3em;
+  border-top:solid 1px $pink;
+  &:before {
+    width:100%;
+    height:300%;
+    left:0;
+    position:absolute;
+    bottom:0;
+    content:"";
+    background: radial-gradient(ellipse at center 100%, rgba(42,48,149,.8) 0%,  rgba(159,0,255,0.2) 30%, rgba(16,9,41,0) 70%);
+    background-size:200% 80%;
+    background-position:center bottom;
+    background-repeat: no-repeat;
+    z-index:-1;
+
+  }
+  svg {
+    widtH:10em;
+  }
+  .contact {
+    text-align: right;
+  }
+  a {
+    color:#fff;
+  }
+  p {
+    margin-top:0;
+  }
+}
+
+#o-brandoo {
+  .col-2 {
+    padding:1em 0;
+  }
+}
+
+a.phone , a.mail {
+  text-decoration:none;
+}
+
+#branze {
+  h2 {
+    text-align:center;
+    max-width:15em;
+    margin:1em auto;
+  }
+  ul {
+    list-style-type:none;
+    display:flex;
+    align-items: center;
+    width:100vw;
+    li {
+      display:inline-block;
+      text-align:center;
+      flex-grow:1;
+      img {
+        display:block;
+        margin:1em auto;
+      }
     }
   }
 }
