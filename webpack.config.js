@@ -3,6 +3,15 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const fs = require('fs');
 
+const includeExp = /\<include src=\"(.+)\"\/?\>(?:\<\/include\>)?/gi;
+const includeFiles = (content, loader) => {
+  return content.replace(includeExp, (m, src) => { 
+    const filePath = path.resolve(loader.context, src)
+    loader.addDependency(filePath);
+    return includeFiles(fs.readFileSync(filePath, 'utf8'),loader)
+  })
+}
+
 module.exports = {
   entry: "./src/js/script.js",
   output : {
@@ -31,11 +40,7 @@ module.exports = {
         loader: 'html-loader',
         options : {
           esModule: false,
-          preprocessor: (content, loaderContext) => content.replace(/\<include src=\"(.+)\"\/?\>(?:\<\/include\>)?/gi, (m, src) => { 
-            const filePath = path.resolve(loaderContext.context, src)
-            loaderContext.addDependency(filePath);
-            return fs.readFileSync(filePath, 'utf8')
-          })
+          preprocessor: (content, loader) => includeFiles(content, loader)
         }
       },     
       {
