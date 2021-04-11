@@ -56,7 +56,7 @@ a:hover, a:visited {
   margin:0 auto;
   padding:1em;
   &.narrow {
-    max-width:900px;
+    max-width:1000px;
   }
 }
 
@@ -155,7 +155,7 @@ a.btn-glow {
   transition:all .5s;
   &:hover {
     --glow-color:#{$pink};
-    animation: flicker 1s infinite;
+    animation: flicker 2s infinite;
   }
   &.btn-glow__green {
     --glow-color:#{$green};
