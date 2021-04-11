@@ -326,3 +326,38 @@ a.phone , a.mail {
     }
   }
 }
+
+
+nav {
+  .row {
+    display:grid;
+    align-items:center;
+    justify-content: center;
+    text-align:center;
+    @media (min-width:$lg) {
+      text-align:left;
+      justify-content:auto;
+      grid-template-columns: 1fr auto;
+    }
+  }
+  .logo {
+    svg {
+      height:calc(2em + 1.5vw);
+    }
+  }
+  ul {
+    display:flex;
+    padding:0;
+    margin:0;
+    list-style-type:none;
+    li {
+      padding:.5em;
+      @media (min-width:$lg) {
+        padding:.5em 1em;
+      }
+      a {
+        white-space:nowrap
+      }
+    }
+  }
+}
