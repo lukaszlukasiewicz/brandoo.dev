@@ -363,9 +363,28 @@ nav {
       a {
         white-space:nowrap;
         text-decoration:none;
+        position:relative;
         color:#fff;
         &:visited {
           color:#fff;
+        }
+        &:before {
+          content:"";
+          position:absolute;
+          top:150%;
+          width:100%;
+          left:0;
+          height:0;
+          border-top:solid 3px $green;
+          opacity:0;
+          transition:all .2s;
+          transform: translateY(.5em);
+        }
+        &.current-page, &:hover {
+          &:before {
+            opacity:1;
+            transform: translateY(0);
+          }
         }
       }
     }
