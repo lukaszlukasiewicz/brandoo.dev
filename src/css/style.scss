@@ -359,6 +359,11 @@ nav {
       }
       a {
         white-space:nowrap;
+        text-decoration:none;
+        color:#fff;
+        &:visited {
+          color:#fff;
+        }
       }
     }
   }
