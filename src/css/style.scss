@@ -25,6 +25,8 @@ html {
     font-weight:300;
     color:#fff;
     position:relative;
+    display: grid;
+    grid-template-rows: 1fr auto;
   }
 }
 
@@ -356,7 +358,7 @@ nav {
         padding:.5em 1em;
       }
       a {
-        white-space:nowrap
+        white-space:nowrap;
       }
     }
   }
