@@ -335,6 +335,8 @@ a.phone , a.mail {
 
 
 nav {
+  z-index:9999;
+  position:relative;
   .row {
     display:grid;
     align-items:center;
@@ -351,17 +353,19 @@ nav {
       height:calc(2em + 1.5vw);
     }
   }
-  ul {
+  .row > ul {
     display:flex;
     padding:0;
     margin:0;
     list-style-type:none;
-    li {
+    > li {
       padding:.5em;
       @media (min-width:$lg) {
         padding:.5em 1em;
       }
-      a {
+    }
+    > li {
+      > a {
         white-space:nowrap;
         text-decoration:none;
         position:relative;
@@ -381,6 +385,11 @@ nav {
           transition:all .2s;
           transform: translateY(.5em);
         }
+        
+      }
+    }
+    > li:not(.has_submenu) {
+      > a {
         &.current-page, &:hover {
           &:before {
             opacity:1;
@@ -389,8 +398,85 @@ nav {
         }
       }
     }
+    > li.has_submenu {
+      > a {
+        &.current-page{
+          &:before {
+            opacity:1;
+            transform: translateY(0);
+          }
+        }
+      }
+      &:hover {
+        > a:before {
+          opacity:0;
+          transform: translateY(.5em);
+        }
+      }
+    }
   }
 }
+
+    .has_submenu {
+      position:relative;
+      &:hover {
+        .submenu {
+          opacity:1;
+          pointer-events:auto;
+          transform:translate(-50%, 0);
+        }
+      }
+      .submenu {
+        opacity:0;
+        pointer-events: none;
+        transform:translate(-50%, 1em);
+        top:2em;
+        lefT:50%;
+        display:block;
+        box-sizing: border-box;
+        position:absolute;
+        padding-top:2em;
+        z-index:9999;
+        transition:all .5s;
+      }
+      ul {
+        padding:2em;
+        list-style-type:none;
+        background:$bg;
+        border-radius: .5em;
+        border:solid 2px $pink;
+        &:before {
+          content:"";
+          border:solid 16px transparent;
+          border-bottom:solid 16px $pink;
+          position:absolute;
+          top:6px;
+          left:50%;
+          margin-left:-16px;
+          z-index:-1
+        }
+        &:after {
+          content:"";
+          border:solid 10px transparent;
+          border-bottom:solid 10px $bg;
+          position:absolute;
+          top:15px;
+          left:50%;
+          margin-left:-10px;
+        }
+        li {
+          a {
+            color:#fff;
+            white-space: nowrap;
+            line-height:2;
+            text-decoration: none;
+            &:hover {
+              color:$green;
+            }
+          }
+        }
+      }
+    }
 
 header {
   h1 {
