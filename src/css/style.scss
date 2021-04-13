@@ -715,3 +715,50 @@ form {
     }
   }
 }
+
+.cv-upload {
+  padding:0 0 2em 0;
+  input {
+    display:none;
+  }
+  .file-input {
+    display:flex;
+    align-items: center;
+    color:$green;
+    div {
+      display:inline-block;
+    }
+    a {
+      display:inline-block;
+      width:.7em;
+      height:.7em;
+      background:url(../images/close.svg);
+      background-size:.7em;
+      background-repeat: no-repeat;
+      background-position:center;
+      text-indent: 999px;
+      margin-left:.5em;
+      overflow: hidden;
+    }
+    div:empty + a {
+      display:none;
+    }
+  }
+  button {
+    margin-top: 1em;
+    color:$green;
+    background:none;
+    border:0;
+    &:after {
+      content:"";
+      display:inline-block;
+      width: 1.5em;
+      height:1.5em;      
+      background:url(../images/upload.svg);
+      background-size:1.5em;
+      background-position:center;
+      vertical-align: middle;
+      margin-left:.5em;
+    }
+  }
+}

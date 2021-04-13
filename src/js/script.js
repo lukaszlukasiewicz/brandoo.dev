@@ -1,5 +1,6 @@
 import '../css/style.scss'
 import ExpandBlock from './expandBlock';
+import CvUploader from './cvUploader'
 
 const nav = document.querySelector('nav');
 
@@ -22,6 +23,8 @@ if(expnadBlocks) {
     });
   })
 }
+
+const cvUploade = CvUploader(document.querySelector('.cv-upload'))
 
 /* 
 {
