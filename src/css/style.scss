@@ -44,11 +44,17 @@ h2 {
   font-size:calc(1em + 1.5vw);
 }
 
+h4 {
+  font-weight:normal;
+  margin: 2em 0;
+  font-size:1.5em;
+}
+
 a {
   color:$blue;
 }
 
-a:hover, a:visited {
+a:not(.btn-glow):hover, a:not(.btn-glow):visited {
   color:$pink;
 }
 
@@ -62,7 +68,15 @@ section {
   padding:1em;
   &.narrow {
     max-width:1000px;
+  }  
+  &.ultranarrow {
+    max-width:700px;
   }
+
+}
+
+.align-center {
+  text-align:center;
 }
 
 .col-2,.col-3,.col-4 {
@@ -172,6 +186,9 @@ section {
   }
   &.btn-glow__pink {
     --glow-color:#{$pink};
+  }
+  &.btn-glow__big {
+    font-size:1.2em;
   }
 }
 
@@ -655,6 +672,7 @@ form {
   }
 }
 
-.job-aplication-form {
-  
+.job-application-form {
+  max-width:600px;
+  margin:0 auto;
 }
