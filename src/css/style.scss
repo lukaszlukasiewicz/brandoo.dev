@@ -28,6 +28,9 @@ html {
     position:relative;
     display: grid;
     grid-template-rows: 1fr auto;
+    > * {
+      min-width: 0;
+    }
   }
 }
 
@@ -590,13 +593,12 @@ header {
   }
   ul {
     list-style-type:none;
-    display:flex;
     align-items: center;
-    width:100vw;
+    display:inline-flex;
     gap:4em;
     padding:0;
     box-sizing:border-box;
-    animation: spin 15s infinite linear;
+    animation: spin 20s infinite linear;
     &:hover {
       animation-play-state: paused;
     }
@@ -617,7 +619,7 @@ header {
    transform:translateX(0)
  }
  to {
-   transform:translateX(-68%)
+   transform:translateX(-25%)
  }
 }
 
