@@ -613,3 +613,48 @@ header {
     }
   }
 }
+form {
+  input, textarea{
+    border:0;
+    background:#fff;
+    display:block;
+    width:100%;
+    padding:1em;
+    border-radius:.5em;
+    margin-bottom: 1em;
+    box-sizing: border-box;
+    font:inherit;
+  }
+  label.checkbox {
+    display:grid;
+    grid-template-columns:auto 1fr;
+    gap:1em;
+    font-size:.8em;
+    margin-bottom:2em;
+    cursor:pointer;
+    .input {
+      input[type="checkbox"] {
+        display:none;
+      }
+      span {
+        display:Block;
+        width:1em;
+        height:1em;
+        background:#fff;
+        border:solid 5px #fff;
+        border-radius: 10em;
+        margin-top:.3em;
+      }
+      input:checked + span{
+        background:$blue;
+      }
+    }
+  }
+  .submit {
+    text-align:right;
+  }
+}
+
+.job-aplication-form {
+  
+}

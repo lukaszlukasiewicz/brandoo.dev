@@ -10,16 +10,33 @@
   <div class="content">
     <include src="../partials/menu.html"></include>
     <header>
-      <div class="row col-2 col-reverse">
-        <div>
-          <include src="../images/kariera.svg"></include>
-        </div>
+      <div class="row col-2">
         <div>
           <h1>Kontakt</h1>
           <p>Nie znalazłeś na stronie istotnych dla Ciebie informacji? Nic straconego! Skontaktuj się z nami za pomocą
             formularza, maila lub przez telefon a my odpowiemy na Twoje pytania.</p>
           <a class="phone" href="tel:+48 531 993 900">+48 531 993 900</a>
           <a class="mail" href="mailto:info@brandoo.pl">info@brandoo.pl</a>
+        </div>
+        <div>
+          <form action="">
+            <input type="text" name="name" placeholder="Imie i nazwisko" id="">
+            <input type="email" name="email" placeholder="Adres e-mail" id="">
+            <input type="text" name="phone" placeholder="Numer telefonu" id="">
+            <textarea name="msg" id="" cols="30" placeholder="Twoja wiadomość" rows="10"></textarea>
+            <label class="checkbox">
+              <div class="input">
+                <input type="checkbox" name="" id="">
+                <span></span>
+              </div>
+              <span>
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aliquid rerum esse nihil, excepturi placeat ipsum modi iste. Voluptatibus illo minus vitae esse magnam! Nihil voluptas nostrum soluta cum sint eos.
+              </span>
+            </label>
+            <div class="submit">
+              <button class="btn-glow btn-glow__green btn-glow__big">Wyślij</button>
+            </div>
+          </form>
         </div>
       </div>
     </header>
