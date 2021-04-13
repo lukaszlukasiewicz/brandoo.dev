@@ -24,16 +24,5 @@ if(expnadBlocks) {
   })
 }
 
-const cvUploade = CvUploader(document.querySelector('.cv-upload'))
-
-/* 
-{
-     
-    const expandHeader = expandBlock.querySelector('.expand-block__header');
-    expandHeader.addEventListener('click' , e => {
-      if(openBlock) openBlock.classList.toggle('expand-block--open')
-      expandBlock.classList.toggle('expand-block--open');
-      openBlock = expandBlock;
-    })
-  }) 
-*/
+const cvWarpper = document.querySelector('.cv-upload');
+if(cvWarpper) CvUploader(cvWarpper)

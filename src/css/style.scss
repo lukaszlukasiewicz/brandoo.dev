@@ -5,6 +5,7 @@ $xxl : 80em;
 
 $blue :#4ECBF6 ;
 $darkblue: #077EFA;
+$navy: #090D6A;
 $green : #01FE93;
 $pink : #EE0790;
 $bg : #100929;
@@ -31,10 +32,14 @@ html {
     > * {
       min-width: 0;
     }
+    @media (max-width:$lg) {
+      font-size:.9em;
+    }
   }
 }
 
 h1,h2,h3,h4,h5,h6 {
+  font-weight:300;
   img {
     display:inline;
     vertical-align: middle;
@@ -547,6 +552,7 @@ header {
     h3 {
       font-weight:normal;
       font-size:1.5em;
+      font-weight:300;
       margin-top:0;
       a {
         text-decoration:none;
@@ -554,6 +560,19 @@ header {
         &:hover {
           color:$green;
         }
+        &:after {
+          content:"";
+          width:1em;
+          height:1em;
+          background:url(../images/plus.svg);
+          background-size: .6em;
+          background-position: center;
+          margin-left:.2em;
+          display:inline-block;
+          background-repeat: no-repeat;
+          vertical-align: middle;
+        }
+
       }
     }
   }
@@ -572,6 +591,9 @@ header {
     .expand-block__content {
       transform:translateY(0);
       opacity:1;
+    }
+    .expand-block__header h3 a:after {
+      background-image: url(../images/minus.svg);
     }
   }
 }
@@ -689,7 +711,7 @@ form {
 
 .carier {
   header {
-    @media (min-width:$md) {
+    @media (min-width:$lg) {
       .row {
         grid-template-columns: 1.2fr .8fr ;
       }
@@ -760,5 +782,50 @@ form {
       vertical-align: middle;
       margin-left:.5em;
     }
+  }
+}
+
+ul.checkmark, ul.check {
+  li {
+    list-style-type:none;
+    position:relative;
+    &:before {
+      display:inline-block;
+      content:"";
+      width:1em;
+      height:1em;
+      background:url(../images/checkmark.svg) no-repeat center;
+      background-position: center;
+      background-size:1em;
+      position:absolute;
+      left:-2em;
+      top:.3em;
+    }
+  }
+}
+
+ul.check {
+  li:before {
+    background-image:url(../images/check.svg);
+  }
+}
+
+
+.ogloszenie {
+  background:$navy;
+  padding:2em;
+  border:solid 3px $blue;
+  border-radius:.5em;
+  box-shadow:.5em .5em $navy;
+  display:grid;
+  grid-template-rows: 1fr auto;
+  h2 {
+    font-family: inherit;
+    text-align:center;
+    font-sizE:2em;
+    margin-top:0;
+  }
+  .align-center {
+    padding-top:2em;
   }
 }
