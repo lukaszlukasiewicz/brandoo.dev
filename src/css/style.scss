@@ -52,6 +52,10 @@ a:hover, a:visited {
   color:$pink;
 }
 
+section {
+  box-sizing:border-box;
+}
+
 .row {
   max-width:1200px;
   margin:0 auto;
@@ -140,14 +144,16 @@ a:hover, a:visited {
   }
 }
 
-a.btn {
+.btn {
   cursor:pointer;
 }
-a.btn-glow {
+.btn-glow {
   --glow-color:#{$blue};
   text-decoration:none;
   display:inline-block;
   padding:.5em 2em;
+  background:none;
+  cursor:pointer;
   color:var(--glow-color,$blue);
   border-radius:.5em;
   border:solid .2em var(--glow-color,$blue);
@@ -310,28 +316,7 @@ a.phone , a.mail {
   text-decoration:none;
 }
 
-#branze {
-  h2 {
-    text-align:center;
-    max-width:15em;
-    margin:1em auto;
-  }
-  ul {
-    list-style-type:none;
-    display:flex;
-    align-items: center;
-    width:100vw;
-    li {
-      display:inline-block;
-      text-align:center;
-      flex-grow:1;
-      img {
-        display:block;
-        margin:1em auto;
-      }
-    }
-  }
-}
+
 
 
 nav {
@@ -495,6 +480,14 @@ header {
   }
 }
 
+.home header {
+  .tag {
+    display:block;
+    font-weight:bold;
+    margin-bottom:2em;
+  }
+}
+
 #przepis-na-sukces {
   h2 + div h3 {
     margin-top:2em;
@@ -558,4 +551,65 @@ header {
 
 #o-brandoo {
   padding:calc(2em + 2vw) 0;
+}
+
+#zadowoleni-klienci, #grupa {
+  padding:1em;
+}
+
+#branze {
+  h2 {
+    text-align:center;
+    max-width:15em;
+    margin:1em auto;
+  }
+  .sectors__icons {
+    position:relative;
+    lefT:50%;
+    overflow:hidden;
+    transform:translateX(-50vw);
+    widtH:calc(100vw - 12px);
+
+  }
+  ul {
+    list-style-type:none;
+    display:flex;
+    align-items: center;
+    width:100vw;
+    gap:4em;
+    padding:0;
+    box-sizing:border-box;
+    animation: spin 15s infinite linear;
+    &:hover {
+      animation-play-state: paused;
+    }
+    li {
+      display:inline-block;
+      text-align:center;
+      flex-grow:1;
+      img {
+        display:block;
+        margin:1em auto;
+      }
+    }
+  }
+}
+
+@keyframes spin {
+ from {
+   transform:translateX(0)
+ }
+ to {
+   transform:translateX(-68%)
+ }
+}
+
+
+#branze {
+  ul {
+    
+    li {
+      flex-grow:0;
+    }
+  }
 }
