@@ -911,3 +911,46 @@ ul.none {
 
   }
 }
+
+#aplication-popup {
+  position:fixed;
+  width:100%;
+  height:100%;
+  top:0;
+  left:0;
+  background:$bg;
+  z-index:9999;
+  opacitY:0;
+  pointer-events:none;
+  transition: 1s all;
+  .glow-box {
+    transform: translateY(2em);
+    max-width:40em;
+    transition: 1s all;
+  }
+  .close-popup {
+    background:$bg;
+    position:absolute;
+    righT:1em;
+    padding:.5em;
+    z-index:9999;
+    top:1em;
+    img {
+      width:1em;
+      height:1em;
+    }
+  }
+}
+
+.show-popup {
+  overflow:hidden;
+  #aplication-popup {
+    opacity:1;
+    overflow:auto;
+    pointer-events: auto;
+    .glow-box {
+      transform: translateY(0);
+    }
+  }
+
+}

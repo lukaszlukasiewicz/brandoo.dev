@@ -24,5 +24,29 @@ if(expnadBlocks) {
   })
 }
 
-const cvWarpper = document.querySelector('.cv-upload');
-if(cvWarpper) CvUploader(cvWarpper)
+const cvWarppers = document.querySelectorAll('.cv-upload');
+if(cvWarppers)  cvWarppers.forEach(cvWarpper => CvUploader(cvWarpper));
+
+const applicationPopup = document.getElementById('aplication-popup');
+const applicationBtns = document.querySelectorAll('.show-application-form');
+if(applicationBtns) {
+  applicationBtns.forEach(btn => {
+    btn.addEventListener('click', e => {
+      document.body.classList.add('show-popup')
+    })
+  })
+}
+
+if(applicationPopup) {
+  applicationPopup.addEventListener('click', e => {
+    e.preventDefault();
+    document.body.classList.remove('show-popup')
+  })
+  applicationPopup.querySelector('.glow-box').addEventListener('click', e => {
+    e.stopPropagation();
+  })
+  applicationPopup.querySelector('.close-popup').addEventListener('click', e => {
+    e.preventDefault();
+    document.body.classList.remove('show-popup')
+  })
+}
