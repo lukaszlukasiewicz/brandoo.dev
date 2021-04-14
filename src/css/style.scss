@@ -539,6 +539,10 @@ header {
   padding:calc(1em + 2vw) calc(1.5em + 4vw);
   box-sizing: border-box;
   margin:2em auto;
+  @media (max-width:$lg) {
+    margin:1em;
+    padding:1em;
+  }
   h2:first-child {
     margin-top:0;
     display:grid;
@@ -843,7 +847,67 @@ ul.none {
 
 .brief-request {
   margin:4em 1em;
+  display:grid;
+  grid-template-rows:auto auto auto;
   h2 {
     margin-top:0;
+    grid-row: 1/1;
+    grid-column : 1/1;
+    transition:.5s all;
+    font-size:2em;
+  }
+  h2 + p {
+    grid-row: 1/1;
+    grid-column : 1/1;
+    opacity:0;
+    transition:.5s all;
+    text-transform:uppercase;
+    font-size:1.2em;
+  }
+  form {
+    transition:.5s all;
+    grid-row: 2/4;
+    grid-column : 1/1;
+    input {
+      opacity:0;
+      margin:1em auto;
+      margin-top:-5.5em;
+      transition:.5s all;
+      max-width:600px;
+    }
+    button {
+      pointer-events: none;
+    }
+  }
+  form + p {
+    margin-top:4em;
+  }
+  &:hover {
+    h2 {opacity:0}
+    h2 + p {
+      opacity:1;
+    }
+    form {
+      grid-row: 2/4;
+      grid-column : 1/1;
+      input {
+        margin-top:0;
+        opacity:1;
+      }      
+      button {
+        pointer-events:auto;
+      }
+    }
+    form + p {
+      opacity:0;
+      pointer-events: none;
+      transform:translateY(3em);
+    }
+  }
+  form + p {
+    transition:.5s all;
+    grid-row: 3/4;
+    grid-column : 1/1;
+
   }
 }
