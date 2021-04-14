@@ -403,7 +403,9 @@ nav {
     }
     > li:not(.has_submenu) {
       > a {
+        color:#fff;
         &.current-page, &:hover {
+          color:#fff;
           &:before {
             opacity:1;
             transform: translateY(0);
@@ -414,6 +416,7 @@ nav {
     > li.has_submenu {
       > a {
 
+        color:#fff;
         &.current-page{
           &:before {
             opacity:1;
