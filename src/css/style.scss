@@ -922,14 +922,16 @@ ul.none {
   top:0;
   left:0;
   background:$bg;
+  display:grid;
+  align-items: center;
   z-index:9999;
   opacitY:0;
   pointer-events:none;
-  transition: 1s all;
+  transition: .5s all;
   .glow-box {
     transform: translateY(2em);
     max-width:40em;
-    transition: 1s all;
+    transition: .5s all;
   }
   .close-popup {
     background:$bg;

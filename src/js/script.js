@@ -50,3 +50,15 @@ if(applicationPopup) {
     document.body.classList.remove('show-popup')
   })
 }
+
+
+const forms = document.querySelectorAll('form');
+forms.forEach(form => {
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+    const formData = new FormData(form);
+    for (var value of formData.values()) {
+      console.log(value);
+    }
+  })
+})
