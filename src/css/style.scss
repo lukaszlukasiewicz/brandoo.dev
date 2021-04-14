@@ -525,6 +525,16 @@ header {
     font-weight:bold;
     margin-bottom:2em;
   }
+  div {
+    position:relative;
+  }
+  img {
+    position:absolute;
+    width:40em;
+    max-width:50%;
+    top:70%;
+    left:-5%;
+  }
 }
 
 #przepis-na-sukces {
