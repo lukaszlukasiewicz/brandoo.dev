@@ -366,6 +366,9 @@ nav {
     svg {
       height:calc(2em + 1.5vw);
     }
+    span {
+      display:none;
+    }
   }
   .row > ul {
     display:flex;
