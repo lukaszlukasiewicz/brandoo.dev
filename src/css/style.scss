@@ -50,6 +50,9 @@ h2 {
   font-family: gill-sans-nova-inline, sans-serif;
   color:$blue;
   font-size:calc(1em + 1.5vw);
+  span {
+    color:$green;
+  }
 }
 
 h4 {
@@ -649,7 +652,7 @@ header {
    transform:translateX(0)
  }
  to {
-   transform:translateX(-25%)
+   transform:translateX(-25.3%)
  }
 }
 
@@ -810,13 +813,13 @@ ul.check {
   }
 }
 
+ul.none {
+  list-style-type:none;
+  padding:0;
+}
+
 
 .ogloszenie {
-  background:$navy;
-  padding:2em;
-  border:solid 3px $blue;
-  border-radius:.5em;
-  box-shadow:.5em .5em $navy;
   display:grid;
   grid-template-rows: 1fr auto;
   h2 {
@@ -827,5 +830,20 @@ ul.check {
   }
   .align-center {
     padding-top:2em;
+  }
+}
+
+.shadow-box {
+  background:$navy;
+  padding:2em;
+  border:solid 3px $blue;
+  border-radius:.5em;
+  box-shadow:.5em .5em $navy;
+}
+
+.brief-request {
+  margin:4em 1em;
+  h2 {
+    margin-top:0;
   }
 }
