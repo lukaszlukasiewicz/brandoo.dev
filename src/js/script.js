@@ -6,6 +6,7 @@ import Glide from '@glidejs/glide'
 new Glide('.glide',{
   perView: 5,
   type: 'carousel',
+  autoplay: 3000,
 }).mount()
 
 const nav = document.querySelector('nav');
