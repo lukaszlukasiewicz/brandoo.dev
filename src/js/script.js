@@ -62,3 +62,7 @@ forms.forEach(form => {
     }
   })
 })
+
+window.addEventListener('load', e => {
+  document.body.classList.remove('preload');
+})

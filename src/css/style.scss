@@ -959,3 +959,7 @@ ul.none {
   }
 
 }
+
+.preload * {
+  transition: none !important;
+}
