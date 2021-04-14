@@ -7,6 +7,17 @@ new Glide('.glide',{
   perView: 5,
   type: 'carousel',
   autoplay: 3000,
+  breakpoints : {
+    400: {
+      perView: 1
+    },
+    600: {
+      perView: 2
+    },
+    900: {
+      perView: 3
+    }
+  }
 }).mount()
 
 const nav = document.querySelector('nav');
