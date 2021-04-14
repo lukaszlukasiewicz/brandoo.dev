@@ -10,6 +10,8 @@ $green : #01FE93;
 $pink : #EE0790;
 $bg : #100929;
 
+@import "../../node_modules/@glidejs/glide/src/assets/sass/glide.core";
+
 html {
   padding:0;
   margin:0;
@@ -533,6 +535,10 @@ header {
     position:relative;
   }
   img {
+    max-width: 100%;
+    height:auto;
+  }
+  .badge {
     position:absolute;
     width:40em;
     max-width:50%;
@@ -630,6 +636,42 @@ header {
 
 #zadowoleni-klienci, #grupa {
   padding:1em;
+  
+  .glide__slides {
+    display:flex;
+    align-items: center;
+    justify-items: center;
+  }
+  .glide__slide {
+    display:grid;
+    align-items: center;
+    justify-items: center;
+    img {
+      max-height:5em;
+      widtH:auto;
+      height:auto;
+      max-width:10em;
+    }
+  }
+  [data-glide-el="controls"] {
+    display:grid;
+    grid-template-columns: auto 1fr auto;
+    margin:0 -2em;
+    transform: translateY(-5em);
+    margin-bottom:-2em;
+  }
+  [ data-glide-dir] {
+    border:0;
+    width:2em;
+    height:4em;
+    background:url(../images/next.svg) no-repeat center;
+    &[ data-glide-dir = "<"] {
+      background-image:url(../images/prev.svg)
+    }
+    span {
+      display:none;
+    }
+  }
 }
 
 #branze {

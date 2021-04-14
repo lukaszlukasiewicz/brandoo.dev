@@ -1,6 +1,12 @@
 import '../css/style.scss'
 import ExpandBlock from './expandBlock';
 import CvUploader from './cvUploader'
+import Glide from '@glidejs/glide'
+
+new Glide('.glide',{
+  perView: 5,
+  type: 'carousel',
+}).mount()
 
 const nav = document.querySelector('nav');
 

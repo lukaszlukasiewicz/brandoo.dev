@@ -25,5 +25,8 @@
     "webpack-dev-server": "^3.11.2"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "@glidejs/glide": "^3.4.1"
+  }
 }
