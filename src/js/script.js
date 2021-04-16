@@ -3,7 +3,8 @@ import ExpandBlock from './expandBlock';
 import CvUploader from './cvUploader'
 import Glide from '@glidejs/glide'
 
-new Glide('.glide',{
+const glide = document.querySelector('.glide');
+if (glide) new Glide(glide,{
   perView: 5,
   type: 'carousel',
   autoplay: 3000,
@@ -13,9 +14,6 @@ new Glide('.glide',{
     },
     600: {
       perView: 2
-    },
-    900: {
-      perView: 3
     }
   }
 }).mount()
@@ -56,6 +54,8 @@ if(applicationBtns) {
 }
 
 if(applicationPopup) {
+  const form = applicationPopup.querySelector('form');
+  if(form) form.dataset.form = "job-popup";
   applicationPopup.addEventListener('click', e => {
     e.preventDefault();
     document.body.classList.remove('show-popup')
@@ -69,18 +69,36 @@ if(applicationPopup) {
   })
 }
 
-
-const forms = document.querySelectorAll('form');
-forms.forEach(form => {
-  form.addEventListener('submit', e => {
-    e.preventDefault();
-    const formData = new FormData(form);
-    for (var value of formData.values()) {
-      console.log(value);
-    }
-  })
-})
-
 window.addEventListener('load', e => {
   document.body.classList.remove('preload');
+})
+
+const mailerUrl = 'https://test.brandoo.dev/mailer/';
+const mailForms = document.querySelectorAll('.mailForm');
+mailForms.forEach(mailForm => {
+  mailForm.addEventListener('submit', e => {
+    e.preventDefault();
+    const formData = new FormData(mailForm);
+    mailForm.classList.add('mailForm--disabled');
+    const request = new XMLHttpRequest();
+    request.addEventListener('load', e => {
+      if(request.response.success === true) {
+        console.log(request.response);
+        mailForm.reset();
+      } else {
+        console.error(request.response);
+        //Error request succeded but mail was not sent
+      }
+      mailForm.classList.remove('mailForm--disabled');
+    })
+    request.addEventListener('error', e => {
+      //Error request failes
+      console.error("Request failed");
+      mailForm.classList.remove('mailForm--disabled');
+    })
+    request.open('POST',mailerUrl);
+    request.responseType = 'json';
+    request.send(formData);
+  })
+
 })
