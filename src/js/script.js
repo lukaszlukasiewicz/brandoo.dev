@@ -2,6 +2,7 @@ import '../css/style.scss'
 import ExpandBlock from './expandBlock';
 import CvUploader from './cvUploader'
 import Glide from '@glidejs/glide'
+import PopUp, {defaultPopup} from './popup';
 
 const glide = document.querySelector('.glide');
 if (glide) new Glide(glide,{
@@ -43,29 +44,22 @@ if(expnadBlocks) {
 const cvWarppers = document.querySelectorAll('.cv-upload');
 if(cvWarppers)  cvWarppers.forEach(cvWarpper => CvUploader(cvWarpper));
 
-const applicationPopup = document.getElementById('aplication-popup');
-const applicationBtns = document.querySelectorAll('.show-application-form');
-if(applicationBtns) {
+const applicationForm = document.querySelector('form[data-form="job"]');
+console.log(applicationForm)
+if(applicationForm) {
+  const applicationBtns = document.querySelectorAll('.show-application-form');
   applicationBtns.forEach(btn => {
+    const popupContent = defaultPopup(applicationForm.cloneNode(true), {
+      contentStyles : {
+        maxWidth : '40em',
+      }
+    });
+    const jobPopUp = new PopUp(popupContent);
+    console.log(btn);
     btn.addEventListener('click', e => {
-      document.body.classList.add('show-popup')
-    })
-  })
-}
-
-if(applicationPopup) {
-  const form = applicationPopup.querySelector('form');
-  if(form) form.dataset.form = "job-popup";
-  applicationPopup.addEventListener('click', e => {
-    e.preventDefault();
-    document.body.classList.remove('show-popup')
-  })
-  applicationPopup.querySelector('.glow-box').addEventListener('click', e => {
-    e.stopPropagation();
-  })
-  applicationPopup.querySelector('.close-popup').addEventListener('click', e => {
-    e.preventDefault();
-    document.body.classList.remove('show-popup')
+      jobPopUp.show() 
+      console.log('test'); 
+    });
   })
 }
 
@@ -76,6 +70,9 @@ window.addEventListener('load', e => {
 const mailerUrl = 'https://test.brandoo.dev/mailer/';
 const mailForms = document.querySelectorAll('.mailForm');
 mailForms.forEach(mailForm => {
+
+  const popupContent = defaultPopup("<h1>Error</h1>")
+  const errorPopUp = new PopUp(popupContent);
   mailForm.addEventListener('submit', e => {
     e.preventDefault();
     const formData = new FormData(mailForm);
@@ -84,6 +81,7 @@ mailForms.forEach(mailForm => {
     request.addEventListener('load', e => {
       if(request.response.success === true) {
         console.log(request.response);
+        errorPopUp.show();
         mailForm.reset();
       } else {
         console.error(request.response);
