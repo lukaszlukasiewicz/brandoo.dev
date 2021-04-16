@@ -41,6 +41,9 @@ if(expnadBlocks) {
   })
 }
 
+const thankyouEl = document.querySelector('.thankyou');
+thankyouEl.remove();
+thankyouEl.style.display = "grid";
 const cvWarppers = document.querySelectorAll('.cv-upload');
 if(cvWarppers)  cvWarppers.forEach(cvWarpper => CvUploader(cvWarpper));
 
@@ -49,12 +52,17 @@ console.log(applicationForm)
 if(applicationForm) {
   const applicationBtns = document.querySelectorAll('.show-application-form');
   applicationBtns.forEach(btn => {
-    const popupContent = defaultPopup(applicationForm.cloneNode(true), {
+    const clonedForm = applicationForm.cloneNode(true);
+    const popupContent = defaultPopup(clonedForm, {
       contentStyles : {
         maxWidth : '40em',
       }
     });
     const jobPopUp = new PopUp(popupContent);
+    prepereMailForm(clonedForm, {onSuccess:()=>{
+      console.log('close popup',jobPopUp);
+      jobPopUp.hide();
+    }});
     console.log(btn);
     btn.addEventListener('click', e => {
       jobPopUp.show() 
@@ -69,10 +77,15 @@ window.addEventListener('load', e => {
 
 const mailerUrl = 'https://test.brandoo.dev/mailer/';
 const mailForms = document.querySelectorAll('.mailForm');
-mailForms.forEach(mailForm => {
+mailForms.forEach(mailForm => prepereMailForm(mailForm))
 
+function prepereMailForm(mailForm, options = {}) {
   const popupContent = defaultPopup("<h1>Error</h1>")
   const errorPopUp = new PopUp(popupContent);
+  const {onSuccess, onError} = options;
+  const successPopup = new PopUp(thankyouEl.cloneNode(true), {
+    contentWrapper : false,
+  });
   mailForm.addEventListener('submit', e => {
     e.preventDefault();
     const formData = new FormData(mailForm);
@@ -80,8 +93,9 @@ mailForms.forEach(mailForm => {
     const request = new XMLHttpRequest();
     request.addEventListener('load', e => {
       if(request.response.success === true) {
-        console.log(request.response);
-        errorPopUp.show();
+        console.log(typeof onSuccess)
+        if(typeof onSuccess == 'function') onSuccess();
+        successPopup.show();
         mailForm.reset();
       } else {
         console.error(request.response);
@@ -98,5 +112,4 @@ mailForms.forEach(mailForm => {
     request.responseType = 'json';
     request.send(formData);
   })
-
-})
+}

@@ -1061,10 +1061,65 @@ ul.none {
     padding:.5em;
     z-index:999999;
     top:1em;
-    right:1em
+    right:1em;
     img {
       width:1em;
       height:1em;
+    }
+  }
+}
+
+.thankyou {
+  display:none;
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:$bg;
+  background: radial-gradient(circle 80vw at calc(50% + 20vw) 20vh,  rgba(188,40,217,1) 1%, rgba(42,48,149,1) 35%, rgba(16,9,41,1) 80%);
+  z-index:9999;
+  display:grid;
+  align-items: center;
+  justify-items: center;
+  overflow:hidden;
+  > * {
+    grid-column: 1/1;
+    grid-row:1/1;
+  }
+  .thankyou__msg {
+    height:auto;
+    position:relative;
+    width:50%;
+    max-width:40em;
+    margin-top:-10em;
+  }
+  .thankyou__logo {
+    width:auto;
+    max-height:3em;
+    position:absolute;
+    top:2em;
+  }
+  .thankyou__car {
+    width:70%;
+    max-width:45em;
+    transform:translateY(12em);
+    transition:all 1s;
+  }
+}
+
+.popup--animate-before {
+  .thankyou {
+    .thankyou__car {
+      transform:translate(-30em,17em) scale(1.5);
+    }
+  }
+}
+
+.popup--animate-after {
+  .thankyou {
+    .thankyou__car {
+      transform:translate(30em,7em) scale(.5);
     }
   }
 }
