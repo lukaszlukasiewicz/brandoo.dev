@@ -29,7 +29,6 @@ const FileInput = (id,remove) => {
     fileItem
   )
   fileInput.click();
-  console.log(fileInputwrapper)
   return fileInputwrapper;
 }
 
@@ -42,8 +41,12 @@ const CvUploader = (container) => {
   }
 
   const remove = input => {
-    console.log(input);
     inputs.delete(input);
+    render();
+  }
+
+  const reset = () => {
+    inputs.clear();
     render();
   }
 
@@ -65,7 +68,7 @@ const CvUploader = (container) => {
 
   render();
   return {
-    add, remove
+    add, remove, reset
   }
 }
 

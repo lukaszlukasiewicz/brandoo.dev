@@ -44,15 +44,14 @@ if(expnadBlocks) {
 const thankyouEl = document.querySelector('.thankyou');
 thankyouEl.remove();
 thankyouEl.style.display = "grid";
-const cvWarppers = document.querySelectorAll('.cv-upload');
-if(cvWarppers)  cvWarppers.forEach(cvWarpper => CvUploader(cvWarpper));
 
 const applicationForm = document.querySelector('form[data-form="job"]');
-console.log(applicationForm)
 if(applicationForm) {
   const applicationBtns = document.querySelectorAll('.show-application-form');
   applicationBtns.forEach(btn => {
     const clonedForm = applicationForm.cloneNode(true);
+    const cvWrapper = clonedForm.querySelector('.cv-upload');
+    if(cvWrapper) var cvUploader = CvUploader(cvWrapper)
     const popupContent = defaultPopup(clonedForm, {
       contentStyles : {
         maxWidth : '40em',
@@ -60,16 +59,17 @@ if(applicationForm) {
     });
     const jobPopUp = new PopUp(popupContent);
     prepereMailForm(clonedForm, {onSuccess:()=>{
-      console.log('close popup',jobPopUp);
       jobPopUp.hide();
+      cvUploader.reset();
     }});
-    console.log(btn);
     btn.addEventListener('click', e => {
       jobPopUp.show() 
-      console.log('test'); 
     });
   })
 }
+
+const cvWarppers = document.querySelectorAll('.cv-upload');
+if(cvWarppers)  cvWarppers.forEach(cvWrapper => CvUploader(cvWrapper));
 
 window.addEventListener('load', e => {
   document.body.classList.remove('preload');
@@ -93,7 +93,6 @@ function prepereMailForm(mailForm, options = {}) {
     const request = new XMLHttpRequest();
     request.addEventListener('load', e => {
       if(request.response.success === true) {
-        console.log(typeof onSuccess)
         if(typeof onSuccess == 'function') onSuccess();
         successPopup.show();
         mailForm.reset();
