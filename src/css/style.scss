@@ -769,7 +769,9 @@ form {
     }
   }
   .submit {
-    text-align:right;
+    display:grid;
+    grid-template-columns: 1fr auto;
+    gap:1em;
   }
 }
 
@@ -940,11 +942,31 @@ ul.none {
     button {
       pointer-events: none;
     }
+    &.disabled {
+      pointer-events: none;
+    }
   }
   form + p {
     margin-top:4em;
+  }  
+
+  .checkbox {
+    opacity:0;
+    margin:0 auto;
+    margin-top:-6em;
+    transition:.5s all;
+    margin-bottom:1em;
+    max-width:600px;
+    text-align:left;
+    
   }
-  &:hover {
+  small {
+    opacity:0;
+    margin-top:1em;
+    display:block;
+    transition:all .5s;
+  }
+  &:hover, &.mouseover {
     h2 {opacity:0}
     h2 + p {
       opacity:1;
@@ -965,6 +987,14 @@ ul.none {
       pointer-events: none;
       transform:translateY(3em);
     }
+    .checkbox {
+      opacity:1;
+      margin:1em auto;
+    }
+    
+    small {
+      opacity:1;
+    }
   }
   form + p {
     transition:.5s all;
@@ -972,6 +1002,16 @@ ul.none {
     grid-column : 1/1;
 
   }
+}
+
+.recaptcha-info {
+  margin-top:1em;
+  display:block;
+  font-sizE:.8em;
+  margin:1em auto;
+  transition:all .5s;
+  opacity:.7;
+  line-height:1.2;
 }
 
 #aplication-popup {
@@ -1122,4 +1162,8 @@ ul.none {
       transform:translate(30em,7em) scale(.5);
     }
   }
+}
+
+.grecaptcha-badge { 
+  visibility: hidden;
 }

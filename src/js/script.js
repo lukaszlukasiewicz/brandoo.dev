@@ -33,7 +33,7 @@ const expnadBlocks = document.querySelectorAll('.expand-block');
 if(expnadBlocks) {
   expnadBlocks.forEach(expandBlockElement => {
     const expandBlock = ExpandBlock(expandBlockElement, {
-      onOpen: (block) => {
+      onOpen: () => {
         if(openBlock && openBlock != expandBlock) openBlock.close();
         openBlock = expandBlock;
       },
@@ -88,27 +88,34 @@ function prepereMailForm(mailForm, options = {}) {
   });
   mailForm.addEventListener('submit', e => {
     e.preventDefault();
-    const formData = new FormData(mailForm);
     mailForm.classList.add('mailForm--disabled');
-    const request = new XMLHttpRequest();
-    request.addEventListener('load', e => {
-      if(request.response.success === true) {
-        if(typeof onSuccess == 'function') onSuccess();
-        successPopup.show();
-        mailForm.reset();
-      } else {
-        console.error(request.response);
-        //Error request succeded but mail was not sent
-      }
-      mailForm.classList.remove('mailForm--disabled');
-    })
-    request.addEventListener('error', e => {
-      //Error request failes
-      console.error("Request failed");
-      mailForm.classList.remove('mailForm--disabled');
-    })
-    request.open('POST',mailerUrl);
-    request.responseType = 'json';
-    request.send(formData);
+
+    grecaptcha.ready( () => {
+      grecaptcha.execute('6LeR8a0aAAAAAEG-TNi162LEUWUNtHoSUi5fbVPY', {action: 'submit'}).then(function(token) {
+        const formData = new FormData(mailForm);
+        formData.append("token",token);
+        formData.append("form", mailForm.dataset.form);
+        const request = new XMLHttpRequest();
+        request.addEventListener('load', e => {
+          if(request.response.success === true) {
+            if(typeof onSuccess == 'function') onSuccess();
+            successPopup.show();
+            mailForm.reset();
+          } else {
+            console.error(request.response);
+            //Error request succeded but mail was not sent
+          }
+          mailForm.classList.remove('mailForm--disabled');
+        })
+        request.addEventListener('error', e => {
+          //Error request failes
+          console.error("Request failed");
+          mailForm.classList.remove('mailForm--disabled');
+        })
+        request.open('POST',mailerUrl);
+        request.responseType = 'json';
+        request.send(formData);
+      });
+    });
   })
 }

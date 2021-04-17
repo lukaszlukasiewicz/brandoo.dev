@@ -20,13 +20,13 @@
         </div>
         <div>
           <form action="" class="mailForm" data-form="contact">
-            <input type="text" required name="name" placeholder="Imie i nazwisko" id="">
-            <input type="email" required name="email" placeholder="Adres e-mail" id="">
-            <input type="text" name="phone" placeholder="Numer telefonu" id="">
-            <textarea name="msg" id="" cols="30" placeholder="Twoja wiadomość" rows="10"></textarea>
+            <input type="text" required name="name" placeholder="Imie i nazwisko">
+            <input type="email" required name="email" placeholder="Adres e-mail">
+            <input type="text" name="phone" placeholder="Numer telefonu">
+            <textarea name="message" cols="30" placeholder="Twoja wiadomość" rows="10"></textarea>
             <label class="checkbox">
               <div class="input">
-                <input type="checkbox" name="" id="">
+                <input type="checkbox" name="consent" value="Zgoda na marketing">
                 <span></span>
               </div>
               <span>
@@ -34,8 +34,12 @@
               </span>
             </label>
             <div class="submit">
+              <small class="recaptcha-info">
+                This site is protected by reCAPTCHA and the Google <a href="https://policies.google.com/privacy">Privacy Policy</a> and <a href="https://policies.google.com/terms">Terms of Service</a> apply.
+              </small>
               <button class="btn-glow btn-glow__green btn-glow__big">Wyślij</button>
             </div>
+
           </form>
         </div>
       </div>

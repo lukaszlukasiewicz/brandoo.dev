@@ -3,9 +3,21 @@
   <p>Pobierz niezobowiązujący brief, który pozwoli nam zaprojektować dla Ciebie wyjątkową ofertę</p>
   <form action="" class="align-center mailForm" data-form="brief">
     <input type="email" required placeholder="email" name="email">
-    <button class="btn-glow btn-glow__green btn-glow__big">
+    <label class="checkbox">
+      <div class="input">
+        <input type="checkbox" name="consent" value="Wyrażam zgodę" >
+        <span></span>
+      </div>
+      <span>
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aliquid rerum esse nihil, excepturi placeat ipsum modi iste. Voluptatibus illo minus vitae esse magnam! Nihil voluptas nostrum soluta cum sint eos.
+      </span>
+    </label>
+    <button class="btn-glow btn-glow__green btn-glow__big g-recaptcha">
       Chcę otrzymać brief
     </button>
+    <small class="recaptcha-info">
+      This site is protected by reCAPTCHA and the Google <a href="https://policies.google.com/privacy">Privacy Policy</a> and <a href="https://policies.google.com/terms">Terms of Service</a> apply.
+    </small>
   </form>
   <p class="align-center">
     W oparciu o informacje zawarte w briefie zaproponujemy usługę indywidualnie dopasowaną do Twoich potrzeb!
