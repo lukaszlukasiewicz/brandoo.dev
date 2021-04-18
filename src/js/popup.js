@@ -36,22 +36,27 @@ function PopUp(content, instanceOptions = {}) {
   popupWrapper.classList.add('popup__wrapper');
   popupWrapper.innerHTML = '<a href="#" class="popup__close" data-popup-close><img src="../images/close.svg" width="20" height="20" alt="Zamknij"></a>'
 
+  const popupInnerWrapper = document.createElement('div')
+  popupInnerWrapper.classList.add('popup__inner-wrapper');
+  popupWrapper.appendChild(popupInnerWrapper);
+
   if(contentWrapper) {
     const popupContent = document.createElement('div')
     popupContent.classList.add('popup__content')
     appendContent(content,popupContent);
-    popupWrapper.append(popupContent);
+    popupInnerWrapper.append(popupContent);
   } else {
-    appendContent(content,popupWrapper);
+    appendContent(content,popupInnerWrapper);
   }
   
-  popupWrapper.addEventListener('click', e => {
+  popupInnerWrapper.addEventListener('click', e => {
     if(e.target == e.currentTarget ) hide();
   })
 
 
   const show =  () => {
     document.body.append(popupWrapper);
+    document.body.classList.add('popup--visible');
     popupWrapper.classList.add('popup--animate-before');
     setTimeout(() => {
       popupWrapper.classList.add('popup--animate');
@@ -64,6 +69,7 @@ function PopUp(content, instanceOptions = {}) {
     setTimeout(() => {
       popupWrapper.remove();
       popupWrapper.classList.remove('popup--animate-after');
+      document.body.classList.remove('popup--visible');
     },animationDuration)
   }
 
