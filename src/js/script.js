@@ -58,6 +58,8 @@ if(applicationForm) {
       }
     });
     const jobPopUp = new PopUp(popupContent);
+    const positionInput = clonedForm.querySelector('[name="position"]');
+    if(positionInput) positionInput.value = btn.dataset.position;
     prepereMailForm(clonedForm, {onSuccess:()=>{
       jobPopUp.hide();
       cvUploader.reset();
