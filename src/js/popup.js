@@ -18,7 +18,7 @@ export const  defaultPopup = (content, options = {}) => {
     typeof contentStyles == 'string' ? JSON.parse(contentStyles) : contentStyles
   );
   appendContent(content,contentBox);
-  contentBox.classList.add('glow-box','shadow-box')
+  contentBox.classList.add('shadow-box')
   contentfragment.appendChild(contentBox)
   return contentfragment;
 }

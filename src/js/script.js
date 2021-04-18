@@ -3,6 +3,10 @@ import ExpandBlock from './expandBlock';
 import CvUploader from './cvUploader'
 import Glide from '@glidejs/glide'
 import PopUp, {defaultPopup} from './popup';
+import phone from '../images/phone.svg';
+import mail from '../images/mail.svg';
+
+console.log(phone,mail);
 
 const glide = document.querySelector('.glide');
 if (glide) new Glide(glide,{
@@ -82,7 +86,10 @@ const mailForms = document.querySelectorAll('.mailForm');
 mailForms.forEach(mailForm => prepereMailForm(mailForm))
 
 function prepereMailForm(mailForm, options = {}) {
-  const popupContent = defaultPopup("<h1>Error</h1>")
+  const popupContent = defaultPopup(`<div class="align-center"><h2 style="margin-top:0;">Wystąpił błąd</h2><p>Spróbuj ponownie poźniej lub skontaktuj się z nami:<br/><br/>
+    <a class="phone" href="tel:+48 531 993 900"><img src="${phone}" style="width: 1.5em; vertical-align: middle; margin-top: -.5em;"> +48 531 993 900</a><br/>
+    <a class="mail" href="mailto:info@brandoo.pl"><img src="${mail}" style="width: 1.5em; vertical-align: middle; margin-top: -.5em;"> info@brandoo.pl</a>  
+  </p></div>`);
   const errorPopUp = new PopUp(popupContent);
   const {onSuccess, onError} = options;
   const successPopup = new PopUp(thankyouEl.cloneNode(true), {
@@ -106,12 +113,16 @@ function prepereMailForm(mailForm, options = {}) {
           } else {
             console.error(request.response);
             //Error request succeded but mail was not sent
+            if(typeof onError == 'function') onError();
+            errorPopUp.show();
           }
           mailForm.classList.remove('mailForm--disabled');
         })
         request.addEventListener('error', e => {
           //Error request failes
           console.error("Request failed");
+          if(typeof onError == 'function') onError();
+          errorPopUp.show();
           mailForm.classList.remove('mailForm--disabled');
         })
         request.open('POST',mailerUrl);
