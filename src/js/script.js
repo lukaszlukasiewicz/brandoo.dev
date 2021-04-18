@@ -132,3 +132,15 @@ function prepereMailForm(mailForm, options = {}) {
     });
   })
 }
+
+
+// Fix chrome loosing hover when mouse is over input suggestions 
+const brief = document.querySelector('.brief-request ');
+brief.addEventListener('mouseover', e => {
+  brief.classList.add('mouseover');
+})
+
+brief.addEventListener('mouseout', e => {
+  if(e.target.nodeName == 'INPUT') return false;
+  brief.classList.remove('mouseover');
+})

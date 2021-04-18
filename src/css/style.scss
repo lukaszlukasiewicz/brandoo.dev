@@ -953,12 +953,11 @@ ul.none {
   .checkbox {
     opacity:0;
     margin:0 auto;
-    margin-top:-6em;
     transition:.5s all;
     margin-bottom:1em;
     max-width:600px;
+    max-heighT:0;
     text-align:left;
-    
   }
   small {
     opacity:0;
@@ -990,6 +989,7 @@ ul.none {
     .checkbox {
       opacity:1;
       margin:1em auto;
+      max-height:10em;
     }
     
     small {
