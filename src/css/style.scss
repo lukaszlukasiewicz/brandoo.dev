@@ -675,6 +675,11 @@ header {
     }
   }
 }
+#grupa {
+  .tech {
+    padding:1em;
+  }
+}
 
 #branze {
   h2 {
@@ -1182,4 +1187,21 @@ body.popup--visible {
 
 .grecaptcha-badge { 
   visibility: hidden;
+}
+
+.tech {
+  display:flex;
+  align-items: center;
+  gap:.5em;
+  padding:2em 0;
+  span:first-child {
+    padding-right:.5em;
+  }
+  img {
+    max-width:2.5em;
+    max-height:1.5em;
+    width:100%;
+    height:auto;
+    display:block;
+  }
 }
