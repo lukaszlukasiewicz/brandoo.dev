@@ -34,7 +34,7 @@ function PopUp(content, instanceOptions = {}) {
 
   const popupWrapper = document.createElement('div')
   popupWrapper.classList.add('popup__wrapper');
-  popupWrapper.innerHTML = '<a href="#" class="popup__close" data-popup-close><img src="../images/close.svg" width="20" height="20" alt="Zamknij"></a>'
+  if(!options.hideClose) popupWrapper.innerHTML = '<a href="#" class="popup__close" data-popup-close><img src="../images/close.svg" width="20" height="20" alt="Zamknij"></a>'
 
   const popupInnerWrapper = document.createElement('div')
   popupInnerWrapper.classList.add('popup__inner-wrapper');

@@ -16,22 +16,24 @@
           <h1>Kontakt</h1>
           <p>Nie znalazłeś na stronie istotnych dla Ciebie informacji? Nic straconego! Skontaktuj się z nami za pomocą
             formularza, maila lub przez telefon a my odpowiemy na Twoje pytania.</p>
-            <a class="phone" href="tel:+48 531 993 900"><include src="../images/phone.svg"> +48 531 993 900</a><br/>
-            <a class="mail" href="mailto:info@brandoo.pl"><include src="../images/mail.svg"> info@brandoo.pl</a>
+            <span class="contact">
+              <a class="phone" href="tel:+48 531 993 900"><include src="../images/phone.svg"> +48 531 993 900</a><br/>
+              <a class="mail" href="mailto:info@brandoo.pl"><include src="../images/mail.svg"> info@brandoo.pl</a>
+            </span>
         </div>
         <div>
-          <form action="" class="mailForm" data-form="contact">
+          <form action="" class="mailForm" data-form="contact" novalidate >
             <input type="text" required name="name" placeholder="Imie i nazwisko">
             <input type="email" required name="email" placeholder="Adres e-mail">
             <input type="text" name="phone" placeholder="Numer telefonu">
             <textarea name="message" cols="30" placeholder="Twoja wiadomość" rows="10"></textarea>
             <label class="checkbox">
               <div class="input">
-                <input type="checkbox" name="consent" value="Zgoda na marketing">
+                <input type="checkbox" name="consent" value=" Wyrażam zgodę na przetwarzanie moich danych osobowych w celu przesyłania informacji marketingowych za pomocą środków komunikacji elektronicznej i programów automatyzujących na podstawie ustawy z dnia 18 lipca 2002 r. o świadczeniu usług drogą elektroniczną." >
                 <span></span>
               </div>
               <span>
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aliquid rerum esse nihil, excepturi placeat ipsum modi iste. Voluptatibus illo minus vitae esse magnam! Nihil voluptas nostrum soluta cum sint eos.
+                Wyrażam zgodę na przetwarzanie moich danych osobowych w celu przesyłania informacji marketingowych za pomocą środków komunikacji elektronicznej i programów automatyzujących na podstawie ustawy z dnia 18 lipca 2002 r. o świadczeniu usług drogą elektroniczną. <a href="https://grupabrandoo.pl/polityka-prywatnosci/">NASZA POLITYKA PRYWATNOŚCI</a>
               </span>
             </label>
             <div class="submit">

@@ -94,11 +94,39 @@ function prepereMailForm(mailForm, options = {}) {
   const {onSuccess, onError} = options;
   const successPopup = new PopUp(thankyouEl.cloneNode(true), {
     contentWrapper : false,
+    hideClose : true
   });
+  
+  const fields = mailForm.querySelectorAll('input,textarea');
+  fields.forEach(field => {
+    const wrapper = document.createElement('div');
+    wrapper.classList.add('validationwrapper');
+    field.parentNode.insertBefore(wrapper,field);
+    wrapper.append(field);
+    const notValidMsg = document.createElement('span');
+    notValidMsg.classList.add('validation-msg');
+    notValidMsg.innerText = "Czy napewno te dane są prawidłowe?"
+    field.notValidMsg = notValidMsg;
+  })
   mailForm.addEventListener('submit', e => {
     e.preventDefault();
     mailForm.classList.add('mailForm--disabled');
+    let notValid = false;
+    fields.forEach(field => {
+      const valid = field.checkValidity();
+      console.log(valid);
+      if(!valid) {
+        field.parentNode.classList.add('not-valid');
+        field.parentNode.prepend(field.notValidMsg);
+        notValid = true;
+      } else {
+        field.parentNode.classList.remove('not-valid');
+        field.notValidMsg.remove();
+      }
 
+    })
+    console.log("notvalid",notValid);
+    if(notValid) return false;
     grecaptcha.ready( () => {
       grecaptcha.execute('6LeR8a0aAAAAAEG-TNi162LEUWUNtHoSUi5fbVPY', {action: 'submit'}).then(function(token) {
         const formData = new FormData(mailForm);
@@ -135,12 +163,13 @@ function prepereMailForm(mailForm, options = {}) {
 
 
 // Fix chrome loosing hover when mouse is over input suggestions 
-const brief = document.querySelector('.brief-request ');
-brief.addEventListener('mouseover', e => {
-  brief.classList.add('mouseover');
-})
-
-brief.addEventListener('mouseout', e => {
-  if(e.target.nodeName == 'INPUT') return false;
-  brief.classList.remove('mouseover');
-})
+const brief = document.querySelector('.brief-request');
+if(brief) {
+  const breifSubmitBtn = brief.querySelector('form button');
+  breifSubmitBtn.addEventListener('click',e => {
+    if(!brief.classList.contains('mouseover')) {
+      e.preventDefault();
+      brief.classList.add('mouseover');
+    }
+  })
+}
