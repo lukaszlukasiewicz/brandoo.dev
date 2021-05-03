@@ -27,6 +27,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@glidejs/glide": "^3.4.1"
+    "@glidejs/glide": "^3.4.1",
+    "cookie": "^0.4.1"
   }
 }

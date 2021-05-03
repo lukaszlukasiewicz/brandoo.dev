@@ -190,7 +190,7 @@ section {
   color:var(--glow-color,$blue);
   border-radius:.5em;
   border:solid .2em var(--glow-color,$blue);
-  text-shadow:0 0 5px var(--glow-color,$blue);
+  text-shadow:0 0 5px var(--glow-color,$blue), 0 0 10px var(--glow-color,$blue);
   box-shadow: 0 0 10px var(--glow-color,$blue) , 0 0 10px var(--glow-color,$blue) inset;
   transition:all .5s;
   font-weight:200;
@@ -201,7 +201,7 @@ section {
     --glow-color:#{$green};
     &:hover {
       color:#fff;
-      text-shadow:0 0 5px $pink;
+      text-shadow:0 0 5px $pink,0 0 5px rgb(253, 103, 228);
     }
   }
   &.btn-glow__pink {
@@ -1223,5 +1223,43 @@ body.popup--visible {
     bottom:100%;
     left:0;
     font-size:.8em;
+  }
+}
+
+#CookieInfo {
+  position:fixed;
+  bottom:0;
+  left:0;
+  width:100%;
+  padding:2em;
+  box-sizing: border-box;
+  font-size:.9em;
+  transition: transform .4s, opacity .3s ease .1s;
+  z-index:9999999;
+  &:before {
+    width:100%;
+    lefT:0;
+    top:0;
+    height:100%;
+    opacity:.95;
+    content:"";
+    background:$navy;
+    display:block;
+    position:absolute;
+  }
+  .cookiesContent {
+    max-width:1200px;
+    margin:0 auto;
+    display:grid;
+    grid-template-columns:1fr auto;
+    position:relative;
+    z-index: 2;
+    p {
+      margin-top:0;
+    }
+  }
+  &.cookieFade {
+    transform: translateY(2em);
+    opacity:0;
   }
 }

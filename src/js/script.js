@@ -5,6 +5,7 @@ import Glide from '@glidejs/glide'
 import PopUp, {defaultPopup} from './popup';
 import phone from '../images/phone.svg';
 import mail from '../images/mail.svg';
+import CookieInfo from './CookieInfo';
 
 console.log(phone,mail);
 
@@ -173,3 +174,5 @@ if(brief) {
     }
   })
 }
+
+CookieInfo();
