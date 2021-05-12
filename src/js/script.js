@@ -98,7 +98,7 @@ function prepereMailForm(mailForm, options = {}) {
     hideClose : true
   });
   
-  const fields = mailForm.querySelectorAll('input,textarea');
+  const fields = mailForm.querySelectorAll('input:not([type="checkbox"]),textarea');
   fields.forEach(field => {
     const wrapper = document.createElement('div');
     wrapper.classList.add('validationwrapper');
