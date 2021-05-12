@@ -163,6 +163,22 @@ function prepereMailForm(mailForm, options = {}) {
 }
 
 
+const submenus = document.querySelectorAll('.has_submenu');
+if(submenus) submenus.forEach(menu => {
+  const links = menu.querySelectorAll('a')
+  links.forEach(link => {
+    link.addEventListener('click', e => {
+      const isOpen = [...menu.classList].includes('show_submenu');
+      if(!isOpen) e.preventDefault();
+      menu.classList.toggle('show_submenu',!isOpen);
+    })
+  })
+
+  document.addEventListener('click', e => {
+    if(!menu.contains(e.target)) menu.classList.remove('show_submenu')
+  },true);
+})
+
 // Fix chrome loosing hover when mouse is over input suggestions 
 const brief = document.querySelector('.brief-request');
 if(brief) {

@@ -405,7 +405,7 @@ nav {
           }
         }
       }
-      &:hover {
+      &.show_submenu {
         > a:before {
           opacity:0;
           transform: translateY(.5em);
@@ -417,7 +417,7 @@ nav {
 
     .has_submenu {
       position:relative;
-      &:hover {
+      &.show_submenu {
         .submenu {
           opacity:1;
           pointer-events:auto;
