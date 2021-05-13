@@ -516,12 +516,23 @@ header {
   img {
     max-width: 100%;
     height:auto;
-    margin-bottom:4em;
     @media (min-width:$xxl) {
       width: 120%;
       max-width:none;
     }
   }
+  .neo {
+    margin-bottom:4em;
+    max-height: 90vh;
+  }
+  @media (min-width:$lg) {
+    margin-bottom:2em;
+    .neo {
+      margin-top:-4em;
+      margin-bottom:-8em;
+    }
+  }
+
   .badge {
     position:absolute;
     width:40em;
