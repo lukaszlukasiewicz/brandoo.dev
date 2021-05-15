@@ -183,10 +183,15 @@ if(submenus) submenus.forEach(menu => {
 const brief = document.querySelector('.brief-request');
 if(brief) {
   const breifSubmitBtn = brief.querySelector('form button');
+  const rollOff = brief.querySelector('.rolloff'); 
   breifSubmitBtn.addEventListener('click',e => {
     if(!brief.classList.contains('mouseover')) {
       e.preventDefault();
       brief.classList.add('mouseover');
+      rollOff.style.height = `${rollOff.scrollHeight}px`;
+      setTimeout( () => {
+        rollOff.style.height = "auto";
+      },330)
     }
   })
 }

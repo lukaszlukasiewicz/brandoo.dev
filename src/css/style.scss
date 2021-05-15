@@ -930,7 +930,7 @@ ul.none {
 .brief-request {
   margin:4em 1em;
   display:grid;
-  grid-template-rows:auto auto auto;
+  grid-template-rows:auto auto;
   h2 {
     margin-top:0;
     grid-row: 1/1;
@@ -945,69 +945,64 @@ ul.none {
     transition:.5s all;
     text-transform:uppercase;
     font-size:1.2em;
+    margin-top:-1em;
   }
   form {
     transition:.5s all;
-    grid-row: 2/4;
-    grid-column : 1/1;
     .validationwrapper {
       margin:1em auto;
-      margin-top:-7em;
       transition:.5s all;
       max-width:600px;
     }
     input {
-      opacity:0;
       transition:.5s all;
     }
     button {
       position:relative;
       z-index:2;
     }
-    &.disabled {
-      pointer-events: none;
-    }
   }
-  form + p {
-    margin-top:4em;
-  }  
+
+  .rolloff {
+    heighT:0;
+    overflow:hidden;
+    transition:.5s all;
+    padding-top:1em;
+    margin-top:-1em;
+  }
 
   .checkbox {
-    opacity:0;
     margin:0 auto;
     transition:.5s all;
-    margin-bottom:1em;
     max-width:600px;
-    max-heighT:0;
     text-align:left;
   }
   small {
     opacity:0;
-    margin-top:1em;
+    margin-top:-2em;
     display:block;
     transition:all .5s;
   }
-   &.mouseover {
+
+  
+    &.mouseover {
     h2 {opacity:0}
     h2 + p {
       opacity:1;
+      margin-top:0;
     }
     form {
-      grid-row: 2/4;
-      grid-column : 1/1;
       .validationwrapper {
         margin-top:0;
       }
       input {
         margin-top:0;
         opacity:1;
-      }      
-      button {
-        pointer-events:auto;
-      }
+      }   
     }
     form + p {
-      opacity:0;
+      margin-bottom:-2em;
+      opacitY:0;
       pointer-events: none;
       transform:translateY(3em);
     }
@@ -1019,6 +1014,7 @@ ul.none {
     
     small {
       opacity:1;
+      margin-top:1em;
     }
   }
   form + p {
@@ -1026,7 +1022,7 @@ ul.none {
     grid-row: 3/4;
     grid-column : 1/1;
 
-  }
+  } 
 }
 
 .recaptcha-info {
