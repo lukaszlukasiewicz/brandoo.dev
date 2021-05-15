@@ -1186,6 +1186,9 @@ body.popup--visible {
     transform:translateY(70%);
     transition:all 1s;
   }
+  img {
+    max-width:100%;
+  }
 }
 
 .popup--animate-before {
