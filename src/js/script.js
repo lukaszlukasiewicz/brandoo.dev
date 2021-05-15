@@ -191,4 +191,18 @@ if(brief) {
   })
 }
 
+console.log(document.body);
+document.body.addEventListener('focus', e => {
+  console.log(e.target);
+})
+
+const inputs = document.querySelectorAll('input, textarea');
+if(inputs) inputs.forEach(input => {
+  input.addEventListener('focus', e=> {
+    setTimeout(() => {
+      e.target.scrollIntoView()
+    },100);
+  })
+})
+
 CookieInfo();
