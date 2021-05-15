@@ -98,7 +98,7 @@ section {
 
 .col-2,.col-3,.col-4 {
   display:grid;
-  padding:calc(2em + 2vw);
+  padding:calc(2em + 2vw) 1em;
   gap:calc(2em + 2vw);
   .col-header {
     grid-column: 1/-1;
@@ -780,8 +780,15 @@ form {
   }
   .submit {
     display:grid;
-    grid-template-columns: 1fr auto;
+    @media(min-width:$lg) {
+
+      grid-template-columns: auto 1fr;
+    }
     gap:1em;
+    direction:rtl;
+    > * {
+      direction:ltr
+    }
   }
 }
 
