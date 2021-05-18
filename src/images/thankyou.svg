@@ -980,9 +980,6 @@
       <path d="M 395.8393859863281 3.230224609375 L -40.38772583007813 26.90542602539063 L 2.45770263671875 243.9592590332031 L 321.7872619628906 238.7179260253906 L 395.8393859863281 3.230224609375 M 400 0 L 324 241.6820068359375 L 0 247 L -44 24.09706115722656 L 400 0 Z" stroke="none" fill="#00fd99"/>
     </g>
   </g>
-  <g transform="matrix(1, 0, 0, 1, 0, 0)" filter="url(#_)">
-    <text id="_2" data-name="" transform="translate(400 26)" fill="#00fd99" font-size="30" font-family="AbrilFatface-Regular, Abril Fatface"><tspan x="0" y="24"></tspan></text>
-  </g>
   <g id="Group_854" data-name="Group 854" transform="translate(-113.844 -90.716)">
     <g transform="matrix(1, 0, 0, 1, 113.84, 90.72)" filter="url(#Path_2820)">
       <path id="Path_2820-2" data-name="Path 2820" d="M264.01,164.2a2.719,2.719,0,0,0,2.75-2.587,1.825,1.825,0,0,0-2.033-1.873,2.794,2.794,0,0,0-2.827,2.511A1.925,1.925,0,0,0,264.01,164.2Z" transform="translate(-68.88 -84.23)" fill="#00fd99"/>
