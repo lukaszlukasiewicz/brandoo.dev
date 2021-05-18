@@ -81,7 +81,7 @@ window.addEventListener('load', e => {
   document.body.classList.remove('preload');
 })
 
-const mailerUrl = 'https://test.brandoo.dev/mailer/';
+const mailerUrl = 'https://brandoo.dev/mailer/';
 const mailForms = document.querySelectorAll('.mailForm');
 mailForms.forEach(mailForm => prepereMailForm(mailForm))
 
