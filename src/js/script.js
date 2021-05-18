@@ -203,6 +203,7 @@ if(brief) {
 }
 
 document.body.addEventListener('focusin', e => {
+  if (!(e.target.tagName == "INPUT" || e.target.tagName == "TEXTAREA")) return false;
   setTimeout(() => {
     e.target.scrollIntoView()
   },500)  
