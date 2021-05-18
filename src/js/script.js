@@ -98,7 +98,8 @@ function prepereMailForm(mailForm, options = {}) {
     hideClose : true
   });
   
-  const fields = mailForm.querySelectorAll('input:not([type="checkbox"]),textarea');
+  const fields = mailForm.querySelectorAll('input:not([type="checkbox"]),textarea, .checkbox');
+  const validationwrappers = [];
   fields.forEach(field => {
     const wrapper = document.createElement('div');
     wrapper.classList.add('validationwrapper');
@@ -106,27 +107,28 @@ function prepereMailForm(mailForm, options = {}) {
     wrapper.append(field);
     const notValidMsg = document.createElement('span');
     notValidMsg.classList.add('validation-msg');
-    notValidMsg.innerText = "Czy napewno te dane są prawidłowe?"
-    field.notValidMsg = notValidMsg;
+    notValidMsg.innerText = field.dataset.validationMessage ||  "Czy napewno te dane są prawidłowe?"
+    wrapper.notValidMsg = notValidMsg;
+    validationwrappers.push(wrapper);
   })
   mailForm.addEventListener('submit', e => {
     e.preventDefault();
     mailForm.classList.add('mailForm--disabled');
     let notValid = false;
-    fields.forEach(field => {
+    validationwrappers.forEach(wrapper => {
+      const field = wrapper.querySelector('input, textarea');
+      if(!field) return false;
       const valid = field.checkValidity();
       console.log(valid);
       if(!valid) {
-        field.parentNode.classList.add('not-valid');
-        field.parentNode.prepend(field.notValidMsg);
+        wrapper.classList.add('not-valid');
+        wrapper.prepend(wrapper.notValidMsg);
         notValid = true;
       } else {
-        field.parentNode.classList.remove('not-valid');
-        field.notValidMsg.remove();
+        wrapper.classList.remove('not-valid');
+        wrapper.notValidMsg.remove();
       }
-
     })
-    console.log("notvalid",notValid);
     if(notValid) return false;
     grecaptcha.ready( () => {
       grecaptcha.execute('6LeR8a0aAAAAAEG-TNi162LEUWUNtHoSUi5fbVPY', {action: 'submit'}).then(function(token) {
@@ -139,6 +141,12 @@ function prepereMailForm(mailForm, options = {}) {
             if(typeof onSuccess == 'function') onSuccess();
             successPopup.show();
             mailForm.reset();
+            const mouseoverelement = mailForm.closest('.mouseover');
+            if (mouseoverelement) {
+              const rollOff = mouseoverelement.querySelector('.rolloff')
+              if(rollOff) rollOff.style.height = 0;
+              mouseoverelement.classList.remove('mouseover');
+            }
           } else {
             console.error(request.response);
             //Error request succeded but mail was not sent
@@ -197,17 +205,10 @@ if(brief) {
 }
 
 console.log(document.body);
-document.body.addEventListener('focus', e => {
-  console.log(e.target);
-})
-
-const inputs = document.querySelectorAll('input, textarea');
-if(inputs) inputs.forEach(input => {
-  input.addEventListener('focus', e=> {
-    setTimeout(() => {
-      e.target.scrollIntoView()
-    },100);
-  })
+document.body.addEventListener('focusin', e => {
+  setTimeout(() => {
+    e.target.scrollIntoView()
+  },500)  
 })
 
 CookieInfo();

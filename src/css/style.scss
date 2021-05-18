@@ -758,6 +758,8 @@ form {
     display:grid;
     grid-template-columns:auto 1fr;
     gap:1em;
+    margin-top:0;
+    padding-top:0;
     font-size:.8em;
     margin-bottom:2em;
     cursor:pointer;
@@ -1008,7 +1010,6 @@ ul.none {
     }
     .checkbox {
       opacity:1;
-      margin:1em auto;
       max-height:10em;
     }
     
@@ -1232,6 +1233,10 @@ body.popup--visible {
 .not-valid {
   position:relative;
   input, textarea {
+    box-shadow:0 0 1px 2px red;
+  }
+  .checkbox input + span {
+    
     box-shadow:0 0 1px 2px red;
   }
   .validation-msg {
