@@ -42,7 +42,6 @@ const ExpandBlock = (ExpandBlockElement, options = {})  => {
 
   window.addEventListener('resize', e => {
     if(!isOpen) return false;
-    console.log(contentContainer.children[0].scrollHeight);
     contentContainer.style.height = `${contentContainer.children[0].scrollHeight}px`
   })
   if(expandHeader) expandHeader.addEventListener('click' , e =>  {

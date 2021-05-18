@@ -7,7 +7,6 @@ import phone from '../images/phone.svg';
 import mail from '../images/mail.svg';
 import CookieInfo from './CookieInfo';
 
-console.log(phone,mail);
 
 const glide = document.querySelector('.glide');
 if (glide) new Glide(glide,{
@@ -119,7 +118,6 @@ function prepereMailForm(mailForm, options = {}) {
       const field = wrapper.querySelector('input, textarea');
       if(!field) return false;
       const valid = field.checkValidity();
-      console.log(valid);
       if(!valid) {
         wrapper.classList.add('not-valid');
         wrapper.prepend(wrapper.notValidMsg);
@@ -204,7 +202,6 @@ if(brief) {
   })
 }
 
-console.log(document.body);
 document.body.addEventListener('focusin', e => {
   setTimeout(() => {
     e.target.scrollIntoView()

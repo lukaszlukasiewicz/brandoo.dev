@@ -2,9 +2,7 @@ import cookie from 'cookie'
 const cookieWrapper = document.getElementById('CookieInfo');
 cookieWrapper.remove();
 
-const accetpCookies = () => {
-  console.log("cookies accepted");
-  
+const accetpCookies = () => {  
   document.cookie = cookie.serialize('brandoo__dev__permision',1, {
     maxAge: 60 * 60 * 24 * 30 
   });
